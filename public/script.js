@@ -60,11 +60,9 @@ navigator.mediaDevices
         connectToNewUser(userId, stream)
       }, 1000)
       
-    })
-  })
-.catch( (e)=> {
-	console.log("Error ", e)
-})
+    });
+  });
+
 
 const connectToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream);
