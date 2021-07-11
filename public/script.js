@@ -1,4 +1,4 @@
-const socket = io("ws://localhost:9000", { transports: ['polling'] });
+const socket = io('/');
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
 const showChat = document.querySelector("#showChat");
