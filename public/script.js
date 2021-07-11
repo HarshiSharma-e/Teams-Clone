@@ -60,8 +60,11 @@ navigator.mediaDevices
         connectToNewUser(userId, stream)
       }, 1000)
       
-    });
-  });
+    })
+  })
+.catch( (e)=> {
+	console.log("Error ", e)
+})
 
 const connectToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream);
@@ -69,7 +72,15 @@ const connectToNewUser = (userId, stream) => {
   call.on("stream", (userVideoStream) => {
     addVideoStream(video, userVideoStream);
   });
+  call.on('close', () => {
+	video.remove()
+})
 };
+
+const scrollToBottom = () => {
+  var d = $('.main__chat_window');
+  d.scrollTop(d.prop("scrollHeight"));
+}
 
 peer.on("open", (id) => {
   socket.emit("join-room", ROOM_ID, id, user);
