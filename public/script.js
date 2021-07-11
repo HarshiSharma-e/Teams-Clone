@@ -25,7 +25,7 @@ const user = prompt("Enter your name");
 var peer = new Peer(undefined, {
   path: "/peerjs",
   host: "/",
-  port: 443,
+  port: 9000,
 });
 
 let myVideoStream;
@@ -59,10 +59,9 @@ navigator.mediaDevices
       setTimeout(() => { //this worked great
         connectToNewUser(userId, stream)
       }, 1000)
-      
+
     });
   });
-
 
 const connectToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream);
@@ -70,11 +69,7 @@ const connectToNewUser = (userId, stream) => {
   call.on("stream", (userVideoStream) => {
     addVideoStream(video, userVideoStream);
   });
-  call.on('close', () => {
-	video.remove()
-})
 };
-
 
 peer.on("open", (id) => {
   socket.emit("join-room", ROOM_ID, id, user);
