@@ -77,10 +77,6 @@ const connectToNewUser = (userId, stream) => {
 })
 };
 
-const scrollToBottom = () => {
-  var d = $('.main__chat_window');
-  d.scrollTop(d.prop("scrollHeight"));
-}
 
 peer.on("open", (id) => {
   socket.emit("join-room", ROOM_ID, id, user);
