@@ -10,6 +10,5 @@ This app is build using
 
 ## How to run the project?
 
-1. Open the Deployments
-2. Click on 'View Deployment'
+1. Go to https://video-chat-microsoft-engage.herokuapp.com/
 
